@@ -1,0 +1,30 @@
+# default google test version
+
+CURL ?= curl
+GOOGLE_TEST_VERSION ?= 1.8.1
+
+GOOGLE_TEST_FLAGS += -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googletest/include
+GOOGLE_TEST_FLAGS += -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googlemock/include
+
+# link flags
+GOOGLE_TEST_LIBS += lib/libgooglemock-$(GOOGLE_TEST_VERSION).so
+GOOGLE_TEST_LIBS += lib/libgoogletest-$(GOOGLE_TEST_VERSION).so
+
+lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz:
+	mkdir -p lib/googletest-$(GOOGLE_TEST_VERSION)
+	test -f lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz || $(CURL) -L -o lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz https://github.com/google/googletest/archive/release-$(GOOGLE_TEST_VERSION).tar.gz
+
+lib/googletest-$(GOOGLE_TEST_VERSION)/googletest : lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz
+	tar -zxf lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz -C lib/googletest-$(GOOGLE_TEST_VERSION) --strip-components 1 googletest-release-$(GOOGLE_TEST_VERSION)/googletest
+
+lib/libgoogletest-$(GOOGLE_TEST_VERSION).so : lib/googletest-$(GOOGLE_TEST_VERSION)/googletest
+	$(CXX) -o $@ -shared $(CXXFLAGS) $(GOOGLE_TEST_FLAGS) -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googletest lib/googletest-$(GOOGLE_TEST_VERSION)/googletest/src/gtest-all.cc
+
+lib/googletest-$(GOOGLE_TEST_VERSION)/googlemock : lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz
+	tar -zxf lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz -C lib/googletest-$(GOOGLE_TEST_VERSION) --strip-components 1 googletest-release-$(GOOGLE_TEST_VERSION)/googlemock
+
+lib/libgooglemock-$(GOOGLE_TEST_VERSION).so : lib/googletest-$(GOOGLE_TEST_VERSION)/googlemock lib/libgoogletest-$(GOOGLE_TEST_VERSION).so
+	$(CXX) -o $@ -shared $(CXXFLAGS) $(GOOGLE_TEST_FLAGS) -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googlemock lib/googletest-$(GOOGLE_TEST_VERSION)/googlemock/src/gmock-all.cc lib/libgoogletest-$(GOOGLE_TEST_VERSION).so
+
+.PHONY: googletest
+googletest : lib/libgoogletest-$(GOOGLE_TEST_VERSION).so lib/libgooglemock-$(GOOGLE_TEST_VERSION).so
