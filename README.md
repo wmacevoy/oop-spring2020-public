@@ -25,4 +25,17 @@ py3hello/hellotest/hellotest.py
 From a terminal with the local conda environment activated
 
 
+# WSL
 
+For windows / direct unix users, you can install tools on your own.  You will lose the ability to make snapshots, and may have more trouble getting a proper execution environment.  You will have a very poor experience with a chromebook, since the Visual Studio Code plugins for python will not work in that environment.
+
+- Install Conda
+- Install WSL
+- In WLS
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git cmake build-essential emacs curl
+```
+
+These environments are not tested by me.
