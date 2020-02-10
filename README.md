@@ -29,6 +29,8 @@ From a terminal with the local conda environment activated
 
 For windows / direct unix users, you can install tools on your own.  You will lose the ability to make snapshots, and may have more trouble getting a proper execution environment.  You will have a very poor experience with a chromebook, since the Visual Studio Code plugins for python will not work in that environment.
 
+These notes from Dr. Banet may help: https://docs.google.com/document/d/1tDQrLuCJslEO-ooCj1JTUlkySM3-XcxNqK8DQ3f1ld8/edit
+
 - Install Conda
 - Install WSL
 - In WLS
