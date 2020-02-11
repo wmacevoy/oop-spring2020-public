@@ -41,3 +41,8 @@ sudo apt-get install git cmake build-essential emacs curl
 ```
 
 These environments are not tested by me.
+
+
+| Assignment  | Link  | Notes  |
+|---|---|---|
+| 1  | [bicycle](https://github.com/wmacevoy/oop-spring2020-public/tree/master/bicycle)  | Done
