@@ -1,7 +1,8 @@
 # Bicycle
 
-Adapted from `cpp-greeter` in https://github.com/wmacevoy/csci000-astudent
-and python example
+Adapted from `cpp-greet` in https://github.com/wmacevoy/csci000-astudent
+and python example, with a fairly literal translation of the python notation
+to c++ and the google test framework.
 
 ## Build
 
