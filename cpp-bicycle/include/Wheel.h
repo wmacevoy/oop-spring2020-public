@@ -11,7 +11,7 @@ namespace go {
         public: const double diameter;
         private: double pressure;
         private: bool burst;
-        Wheel(double _diameter = DEFAULT_DIAMETER, double _pressure = DEFAULT_PRESSURE);
+        public: Wheel(double _diameter = DEFAULT_DIAMETER, double _pressure = DEFAULT_PRESSURE);
         
         public: double getDiameter() const;
 
