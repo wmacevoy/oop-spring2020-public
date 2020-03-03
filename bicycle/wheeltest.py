@@ -12,6 +12,12 @@ class WheelTest(unittest.TestCase):
         self.assertEqual(wheel.burst, False)
         self.assertEqual(wheel.flat, Wheel.DEFAULT_PRESSURE == 0.0)
 
+    def testNegativePressure(self):
+        testDiameter : float = 22.0
+        testPressure : float = -1
+        self.assertRaises(ValueError, \
+            lambda : Wheel(diameter = testDiameter, pressure = testPressure))
+
     def testSpecific(self):
         testDiameter : float = 22.0
         testPressure : float = Wheel.BURST_PRESSURE/2.0

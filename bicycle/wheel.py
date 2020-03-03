@@ -1,10 +1,12 @@
 class Wheel:
     BURST_PRESSURE : float = 100.0   # pounds per square inch
     DEFAULT_DIAMETER : float = 29.0  # inches
-    DEFAULT_PRESSURE : float = 0.0   # pounds per square inch
+    DEFAULT_PRESSURE : float = BURST_PRESSURE/2.0   # pounds per square inch
 
     def __init__(self, diameter : float = DEFAULT_DIAMETER, pressure : float = DEFAULT_PRESSURE):
         self._diameter = diameter
+        if pressure < 0:
+            raise ValueError(f"pressure {pressure} must be non-negative")
         self._pressure = pressure
         self._burst : bool = False
         
@@ -33,3 +35,6 @@ class Wheel:
     @property
     def burst(self) -> bool:
         return self._burst
+
+    def inflate(self, additional : float) -> None:
+        self.pressure = self.pressure + additional
