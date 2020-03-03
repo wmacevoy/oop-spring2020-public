@@ -1,11 +1,13 @@
-from typing import Sequence
+from transportation import Transportation
+from typing import Sequence,Set,List,Tuple,Dict
 from wheel import Wheel
+from transportation import Transportation
 
-class Bicycle:
+class Bicycle(Transportation):
     def __init__(self, color : str, diameter : float = Wheel.DEFAULT_DIAMETER):
-        self._wheels : Sequence[Wheel] = (Wheel(diameter),Wheel(diameter))
+        super(Bicycle,self).__init__(started = False)
+        self._wheels : List[Wheel] = [Wheel(diameter),Wheel(diameter)]
         self._color : str = color
-        self._started : bool = False
 
     @property
     def front(self) -> Wheel:
@@ -19,16 +21,7 @@ class Bicycle:
     def flat(self) -> bool:
         return self.front.flat or self.rear.flat
 
-    def start(self) -> None:
-        self._started = True
-
-    def stop(self) -> None:
-        self._started = False
-
-    @property
-    def started(self):
-        return self._started
-
+# override
     @property
     def going(self):
         return  self.started and not self.flat
