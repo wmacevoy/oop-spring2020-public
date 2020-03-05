@@ -4,7 +4,7 @@ namespace go
 {
 
   Bicycle::Bicycle(const std::string &_color, double _diameter)
-    : color(_color), wheels(2), started(false)
+    : Transportation(false), color(_color), wheels(2)
   {
     wheels[0]=std::shared_ptr<Wheel>(new Wheel(_diameter));
     wheels[1]=std::shared_ptr<Wheel>(new Wheel(_diameter));
@@ -21,10 +21,27 @@ namespace go
 
   bool Bicycle::isFlat() const { return getFront().isFlat() || getRear().isFlat(); }
 
-  void Bicycle::start() { started = true; }
-  void Bicycle::stop() { started = false; }
-
-  bool Bicycle::isStarted() const { return started; }
   bool Bicycle::isGoing() const { return isStarted() && ! isFlat(); }
 
 } // namespace go
+
+using namespace go;
+void thing1() {
+   Bicycle *bike = new Bicycle("red");
+   bike=0;
+   bike->start();
+   bike=new Bicycle("blue");
+
+
+
+
+}
+
+void thing2() {
+   Bicycle &bike = *(new Bicycle("red"));
+   bike.start();
+
+  bike = *(new Bicycle("blue"));
+
+
+}

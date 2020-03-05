@@ -1,15 +1,16 @@
 #pragma once
 
+#include "Transportation.h"
+
 #include <vector>
 #include <memory>
 #include "Wheel.h"
 
 namespace go {
 
-    class Bicycle {
+    class Bicycle : public Transportation {
     private: std::vector < std::shared_ptr < Wheel > > wheels;
     private: std::string color;
-    private: bool started;
 
     public: Bicycle(const std::string &_color, double _diameter = Wheel::DEFAULT_DIAMETER);
 
@@ -24,11 +25,7 @@ namespace go {
 
     public: bool isFlat() const;
 
-    public: void start();
-    public: void stop();
-
-    public: bool isStarted() const;
-    public: bool isGoing() const;
+    public: bool isGoing() const override;
     };
  }
 
