@@ -25,23 +25,3 @@ namespace go
 
 } // namespace go
 
-using namespace go;
-void thing1() {
-   Bicycle *bike = new Bicycle("red");
-   bike=0;
-   bike->start();
-   bike=new Bicycle("blue");
-
-
-
-
-}
-
-void thing2() {
-   Bicycle &bike = *(new Bicycle("red"));
-   bike.start();
-
-  bike = *(new Bicycle("blue"));
-
-
-}
