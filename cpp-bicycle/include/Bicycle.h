@@ -6,26 +6,42 @@
 #include <memory>
 #include "Wheel.h"
 
-namespace go {
+namespace go
+{
 
-    class Bicycle : public Transportation {
-    private: std::vector < std::shared_ptr < Wheel > > wheels;
-    private: std::string color;
+class Bicycle : public Transportation
+{
+private:
+    std::vector<std::shared_ptr<Wheel>> wheels;
 
-    public: Bicycle(const std::string &_color, double _diameter = Wheel::DEFAULT_DIAMETER);
+private:
+    std::string color;
 
-    public: const std::string &getColor() const;
-    public: void setColor(const std::string &value);
+public:
+    Bicycle(const std::string &_color, double _diameter = Wheel::DEFAULT_DIAMETER);
 
-    public:  Wheel& getFront();
-    public:  const Wheel& getFront() const;
+public:
+    const std::string &getColor() const;
 
-    public:  Wheel& getRear();
-    public:  const Wheel& getRear() const;
+public:
+    void setColor(const std::string &value);
 
-    public: bool isFlat() const;
+public:
+    Wheel &getFront();
 
-    public: bool isGoing() const override;
-    };
- }
+public:
+    const Wheel &getFront() const;
 
+public:
+    Wheel &getRear();
+
+public:
+    const Wheel &getRear() const;
+
+public:
+    bool isFlat() const;
+
+public:
+    bool isGoing() const override;
+};
+} // namespace go
