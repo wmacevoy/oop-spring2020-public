@@ -44,4 +44,7 @@ public:
 public:
     bool isGoing() const override;
 };
+
+typedef std::shared_ptr < Bicycle > BicyclePtr;
+
 } // namespace go

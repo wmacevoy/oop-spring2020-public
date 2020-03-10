@@ -67,4 +67,7 @@ public:
 public:
     bool isGoing() const override;
 };
+
+typedef std::shared_ptr < Car > CarPtr;
+
 } // namespace go

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 namespace go {
 
     class Transportation {
@@ -12,5 +14,7 @@ namespace go {
     public: virtual bool isStarted() const;
     public: virtual bool isGoing() const;
     };
+
+    typedef std::shared_ptr < Transportation > TransportationPtr;
  }
 
