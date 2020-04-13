@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "`uname`" = "Linux" ]
+then
+  ME=$(dirname $(realpath $0))
+  export LD_LIBRARY_PATH="$ME/lib:LD_LIBRARY_PATH"
+fi
+
+"$@"
