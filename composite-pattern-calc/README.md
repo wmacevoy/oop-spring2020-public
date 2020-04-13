@@ -11,6 +11,7 @@ will build/test the project.
 
 Sides: https://docs.google.com/presentation/d/1BnCFKeE-3YqeHTFOzjrF59ob_gC4AfFsNYgK5VZOJaM/edit?usp=sharing
 
-Talk: https://coloradomesa.zoom.us/recording/detail?meeting_id=1K%2B9Rm1SSSWMIsjQ%2BIt7Cw%3D%3D
+Talk: https://coloradomesa.zoom.us/rec/share/vO82fov1r1hJebPoyVrdY-0AAtvOaaa8gXMb_voEyEv68tNdikNRdLI_h1EvH91v?startTime=1586813556000
+
 
 
