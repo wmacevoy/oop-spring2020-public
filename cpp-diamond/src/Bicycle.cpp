@@ -4,7 +4,7 @@ namespace go
 {
 
 Bicycle::Bicycle(const std::string &_color, double _diameter)
-    : Transportation(false), color(_color), wheels(2)
+    : color(_color), wheels(2)
 {
   wheels[0] = std::shared_ptr<Wheel>(new Wheel(_diameter));
   wheels[1] = std::shared_ptr<Wheel>(new Wheel(_diameter));

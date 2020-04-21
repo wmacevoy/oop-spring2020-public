@@ -4,7 +4,7 @@ namespace go
 {
 const double Car::DEFAULT_FUEL = 1.0;
 Car::Car(double _diameter)
-    : Transportation(false), wheels(4), fuel(DEFAULT_FUEL)
+    : wheels(4), fuel(DEFAULT_FUEL)
 {
   wheels[FRONT_LEFT] = std::shared_ptr<Wheel>(new Wheel(_diameter));
   wheels[FRONT_RIGHT] = std::shared_ptr<Wheel>(new Wheel(_diameter));

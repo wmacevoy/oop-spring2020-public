@@ -9,7 +9,7 @@
 namespace go
 {
 
-class Car : public Transportation
+class Car : virtual public Transportation
 {
 
 public:

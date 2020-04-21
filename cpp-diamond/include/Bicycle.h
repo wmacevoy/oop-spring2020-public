@@ -9,7 +9,7 @@
 namespace go
 {
 
-class Bicycle : public Transportation
+class Bicycle : virtual public Transportation
 {
 private:
     std::vector<std::shared_ptr<Wheel>> wheels;

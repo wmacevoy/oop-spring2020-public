@@ -2,9 +2,9 @@
 
 namespace go {
 
-    Transportation::Transportation(bool _started)
-      : started(_started) 
-    {
+    Transportation::Transportation()
+      : started(false)
+    { 
     }
     void Transportation::start() {
         started = true;
@@ -18,6 +18,9 @@ namespace go {
     }
     bool Transportation::isGoing() const {
         return started;
+    }
+
+    Transportation::~Transportation() {
     }
 
  }
